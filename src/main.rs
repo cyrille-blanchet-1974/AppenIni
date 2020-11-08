@@ -58,7 +58,6 @@ pub fn traitement(p: &Paramcli) {
 }
 
 fn main() {
-    println!("appendini 1.0 (2020)");
     let param = Paramcli::new();
     traitement(&param);
 }
