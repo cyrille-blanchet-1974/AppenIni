@@ -14,12 +14,10 @@ pub fn start_thread_read(to_search: Sender<String>, fic: &str) -> JoinHandle<()>
             }
             Ok(f) => {
                 let buffered = BufReader::new(f);
-                for line in buffered.lines() {
-                    if let Ok(l) = line {
-                        if to_search.send(l).is_err() {
-                            println!("error sending to search");
-                            return;
-                        }
+                for line in buffered.lines().flatten() {
+                    if to_search.send(line).is_err() {
+                        println!("error sending to search");
+                        return;
                     }
                 }
             }

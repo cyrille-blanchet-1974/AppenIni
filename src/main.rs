@@ -53,7 +53,6 @@ pub fn traitement(p: &Paramcli) {
     }
     if rename(&fic_out, &p.fic).is_err() {
         println!("error renaming {} to {} aborting", fic_out, p.fic);
-        return;
     }
 }
 

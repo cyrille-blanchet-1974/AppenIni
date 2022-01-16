@@ -73,7 +73,6 @@ pub fn start_thread_search(
                 res.push_str(&str_value);
                 if to_write.send(res).is_err() {
                     println!("error sending to write");
-                    return;
                 }
             }
         } else {
@@ -87,7 +86,6 @@ pub fn start_thread_search(
             res.push_str(&str_value);
             if to_write.send(res).is_err() {
                 println!("error sending to write");
-                return;
             }
         }
     })
